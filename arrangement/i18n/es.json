@@ -1,0 +1,12 @@
+{
+  "title": "Distribución de pantallas",
+  "count": {"one": "%1 pantalla activa", "other": "%1 pantallas activas"},
+  "drag": "Arrastra una pantalla para cambiar por dónde pasa el puntero.",
+  "single": "Conecta otra pantalla para cambiar la distribución.",
+  "save": "Aplicar y guardar",
+  "reset": "Recargar",
+  "saved": "Distribución guardada.",
+  "error": "No se pudo cambiar la distribución. Recarga para intentarlo de nuevo.",
+  "invalid": "Las pantallas deben compartir bordes sin superponerse.",
+  "mirrored": "Desactiva la duplicación en Pantalla antes de cambiar la distribución."
+}

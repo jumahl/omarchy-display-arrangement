@@ -1,0 +1,12 @@
+{
+  "title": "Display arrangement",
+  "count": {"one": "%1 active display", "other": "%1 active displays"},
+  "drag": "Drag a display to change where the pointer crosses.",
+  "single": "Connect another display to change the arrangement.",
+  "save": "Apply and save",
+  "reset": "Reload",
+  "saved": "Arrangement saved.",
+  "error": "Could not change the arrangement. Reload to try again.",
+  "invalid": "Displays must share edges without overlapping.",
+  "mirrored": "Turn off mirroring in Display before rearranging."
+}
