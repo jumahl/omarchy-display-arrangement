@@ -12,6 +12,8 @@ omarchy plugin add https://github.com/jumahl/omarchy-display-arrangement.git --e
 
 Open **Display → Display arrangement**, drag a tile to the correct side and height, and select **Apply and save**. Each machine saves its own layout.
 
+Select **Identify** to show each tile's number on its physical display for three seconds. Tiles show the monitor model when reported by the system, with the connector (such as `eDP-1`) underneath. An active built-in display is numbered 1; otherwise numbers follow connector order. Identifying displays does not apply or save the layout.
+
 The plugin updates supported monitor rules in `~/.config/hypr/monitors.lua` and makes a backup before writing. It does not rearrange mirrored displays.
 
 ## Disable

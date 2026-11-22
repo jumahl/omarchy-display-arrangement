@@ -1,4 +1,7 @@
 import QtQuick
+import Quickshell
+import qs.Commons as C
+import "DisplayLabels.js" as Labels
 import "Layout.js" as Geometry
 
 Rectangle {
@@ -8,6 +11,7 @@ Rectangle {
     property color foreground: "white"
     property color accent: "white"
     property color tileColor: "#222"
+    property string builtInLabel: ""
     property string fontFamily: ""
     property real labelSize: 12
     signal moved(int index, var position)
@@ -47,17 +51,37 @@ Rectangle {
             border.color: pointer.pressed ? map.accent : map.foreground
             color: map.tileColor
 
-            Text {
-                anchors.fill: parent
-                anchors.margins: 4
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                elide: Text.ElideRight
-                text: tile.row.name
-                textFormat: Text.PlainText
-                color: map.foreground
-                font.family: map.fontFamily
-                font.pixelSize: map.labelSize
+            Column {
+                anchors.verticalCenter: parent.verticalCenter
+                x: 4
+                width: Math.max(0, parent.width - 8)
+                spacing: 2
+                readonly property string modelName: Labels.displayModel(Quickshell.screens, tile.row.name)
+                    || (Labels.isBuiltIn(tile.row.name) ? map.builtInLabel : "")
+
+                Text {
+                    width: parent.width
+                    visible: text !== "" && tile.height >= map.labelSize * 3
+                    horizontalAlignment: Text.AlignHCenter
+                    elide: Text.ElideRight
+                    text: parent.modelName
+                    textFormat: Text.PlainText
+                    color: map.foreground
+                    font.family: map.fontFamily
+                    font.pixelSize: map.labelSize
+                    font.bold: true
+                }
+
+                Text {
+                    width: parent.width
+                    horizontalAlignment: Text.AlignHCenter
+                    elide: Text.ElideRight
+                    text: C.I18n.formatNumber(Labels.displayNumber(map.rows, tile.row.name)) + " · " + tile.row.name
+                    textFormat: Text.PlainText
+                    color: map.foreground
+                    font.family: map.fontFamily
+                    font.pixelSize: map.labelSize
+                }
             }
 
             MouseArea {
